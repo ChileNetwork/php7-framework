@@ -43,7 +43,7 @@ Para este proyecto se utilizo Composer, un administrador de paquetes o dependenc
 The DependencyInjection component implements a PSR-11 compatible service container that allows you to standardize and centralize the way objects are constructed in your application
 
 Se utilizará el componente del proyecto de symfony, 'dependency-injection'.
-> composer require symfony/dependency-injection
+> $ composer require symfony/dependency-injection
 
 Symfony DI recomienda instalar varios otros componentes pero para esta etapa inicial instalaremos solo dos:
 ```bash
