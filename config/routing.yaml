@@ -1,0 +1,28 @@
+# in config/routing.yaml
+imports:
+  - { resource: 'routes/default.yaml' }
+
+services:
+  route.collection:
+    class: Symfony\Component\Routing\RouteCollection
+    calls:
+      - [ add, ["route_home", "@route.home"] ]
+      - [ add, ["route_page", "@route.page"] ]
+  router.request_context:
+      class: Symfony\Component\Routing\RequestContext
+      calls:
+        - [ fromRequest, ["@request"] ]
+  router.matcher:
+    class: Symfony\Component\Routing\Matcher\UrlMatcher
+    arguments: [ "@route.collection", "@router.request_context" ]
+  router.listener:
+    class: Symfony\Component\HttpKernel\EventListener\RouterListener
+    arguments:
+      matcher: "@router.matcher"
+      request_stack: "@request_stack"
+      context: "@router.request_context"
+  router.generator:
+    class: Symfony\Component\Routing\Generator\UrlGenerator
+    arguments:
+      routes: "@route.collection"
+      context: "@router.request_context"

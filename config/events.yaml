@@ -1,0 +1,6 @@
+# in config/events.yaml
+services:
+  dispatcher:
+    class: Symfony\Component\EventDispatcher\EventDispatcher
+    calls:
+      - [ addSubscriber, ["@router.listener"]]

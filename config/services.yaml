@@ -1,0 +1,6 @@
+#in config/services.yaml
+imports:
+  - { resource: 'events.yaml' }
+  - { resource: 'kernel.yaml' }
+  - { resource: 'controllers.yaml' }
+  - { resource: 'routing.yaml' }

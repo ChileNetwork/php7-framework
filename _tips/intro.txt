@@ -1,0 +1,24 @@
+This one is meant to handle http requests. We can have more entry points for console commands, cron tasks and more. Each entry point is supposed to get certain services and should know about the DI-container structure. This is the only place where we can request services from the container. From this moment we will try to build this application only using DI-container configuration files.
+
+As you can see, we use the ‘factory’ property to create the request service. HttpKernel service only gets Request object and returns Response object. It can be done in the front controller.
+
+Optional recommendations to improve your setup
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ * a PHP accelerator should be installed
+   > Install and/or enable a PHP accelerator (highly recommended).
+
+ * realpath_cache_size should be at least 5M in php.ini
+   > Setting "realpath_cache_size" to e.g. "5242880" or "5M" in
+   > php.ini* may improve performance on Windows significantly in some
+   > cases.
+
+ * "post_max_size" should be greater than "upload_max_filesize".
+   > Set "post_max_size" to be greater than "upload_max_filesize".
+
+Now the controller has access to the request service. As you can see, this scheme has circular dependencies. It works because the DI-container shares service after creation and before method and property injections. So when the controller service is creating, the request service already exists.
+
+So controllers will cause initialization of depended services only when an actual method is called. Also, it avoids circular dependency error because a controller service will be shared before actual initialization; although we still have to avoid circular references. In this case we should not inject the controller service in the request service or the request service into the controller service. Obviously we need a request service in controllers, so let’s avoid an injection in the request service on the container initiation stage. HttpKernel has events system for this purpose.
+
+Routing
+Apparently we want to have different controllers for different requests. So we need a routing system. Let’s install the symfony routing component.
