@@ -1,13 +1,13 @@
 # ChileNetwork PHP7 Framework 
 
-### Instalación
+## Instalación
 
 Descarga el proyecto utilizando el comando ´git clone´:
 > $ git clone https://github.com/ChileNetwork/php7-framework.git
 
 > $ cd php7-framework 
 
-Ejecuta composer para instalar las dependencias descritas en composer.json ubicado en el root del proyecto.
+Ejecuta [Composer](https://getcomposer.org/) para instalar las dependencias descritas en ´composer.json´ ubicado en el root del proyecto.
 > $ composer install
 
 Ahora queda levantar un servidor HTTP utilizando como punto de entrada el archivo ./public/index.php:
@@ -39,6 +39,7 @@ Para este proyecto se utilizo Composer, un administrador de paquetes o dependenc
 	|--Controller             : Controladores de la Aplicación.
 	|--CNContainer.php        : Clase Contenedor de Inyección de Dependencias.
 ```
+
 ### Dependency Injection Container - DIC
 The DependencyInjection component implements a PSR-11 compatible service container that allows you to standardize and centralize the way objects are constructed in your application
 

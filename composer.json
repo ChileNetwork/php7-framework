@@ -1,10 +1,13 @@
 {
-    "name": "msoto77/chilenetwork-framework",
-    "description": "Otro framework mas de php",
+    "name": "chilenetwork/php7-framework",
+    "description": "Php Framework for developers",
+    "keywords": ["DI", "Dependency Injection", "Framework"],
     "authors": [
         {
             "name": "ChileNetwork",
-            "email": "msotosalgado.77@gmail.com"
+            "email": "contacto@chilenetwork.cl",
+            "homepage": "http://www.chilenetwork.cl",
+            "role": "Developer"
         }
     ],
     "require": {
