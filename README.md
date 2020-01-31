@@ -1,6 +1,6 @@
 # ChileNetwork PHP7 Framework 
 
-## Instalación
+## Instalación utilizando Github
 
 Descarga el proyecto utilizando el comando ´git clone´:
 > $ git clone https://github.com/ChileNetwork/php7-framework.git
@@ -10,6 +10,18 @@ Descarga el proyecto utilizando el comando ´git clone´:
 Ejecuta [Composer](https://getcomposer.org/) para instalar las dependencias descritas en ´composer.json´ ubicado en el root del proyecto.
 > $ composer install
 
+## Instalación utilizando Composer
+
+Puedes descargar el proyecto utilizando composer. Inicializa un nuevo proyecto:
+> $ composer init
+
+> $ composer install
+
+> $ composer require chilenetwork/php7-framework
+
+Ya esta!. Ahora queda implementarlo.
+
+## Implementación
 Ahora queda levantar un servidor HTTP utilizando como punto de entrada el archivo ./public/index.php:
 > $ php -S localhost:6776 -t public/
 
